@@ -1,3 +1,4 @@
+
 import Notification from '../Notification.vue';
 import { events } from './events';
 
@@ -10,15 +11,15 @@ const Notify = {
 
 		Vue.component('notifications', Notification)
 
-		const notify = params => {
-			if (typeof params === 'string') {
-				params = { title: '', text: params }
-			}
-
-			if (typeof params === 'object') {
-				events.$emit('add', params)
-			}
+		const emitAddToast = (variant, data) => {
+			events.$emit('add', { variant, data })
 		}
+
+		const notify = {}
+
+		notify.success = (data) => emitAddToast('success', data)
+		notify.error = (data) => emitAddToast('primary', data)
+		notify.primary = (data) => emitAddToast('danger', data)
 
 		notify.close = id => {
 			events.$emit('close', id)

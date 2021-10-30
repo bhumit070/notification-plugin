@@ -15,7 +15,9 @@ export default {
   name: "App",
   methods: {
     on() {
-      this.$notify("ok");
+      this.$notify.success("This is a success plugin");
+      this.$notify.error("This is an error plugin");
+      this.$notify.primary("This is a primary plugin");
     },
     off() {
       this.$notify.close();

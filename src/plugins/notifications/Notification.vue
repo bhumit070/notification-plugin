@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ message }} <span v-if="showCount"> {{ showCount }} </span>
-  </div>
+  <div>this</div>
 </template>
 
 
@@ -14,9 +12,14 @@ export default {
     showCount: 0,
   }),
   methods: {
-    addItem() {
+    addItem(payload) {
       this.message = "Show Message";
       this.showCount++;
+      this.$bvToast.toast(payload.data, {
+        title: `Variant ${payload.variant || "default"}`,
+        variant: payload.variant,
+        solid: true,
+      });
     },
     closeItem() {
       this.message = "Hide Message";
