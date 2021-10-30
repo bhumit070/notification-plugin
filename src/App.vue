@@ -1,23 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <notifications />
+    <img alt="Vue logo" src="./assets/logo.png" /> <br />
+    <br />
+    <button @click="on">on</button> <br />
+    <br />
+    <br />
+    <button @click="off">off</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  methods: {
+    on() {
+      this.$notify("ok");
+    },
+    off() {
+      this.$notify.close();
+    },
+  },
+};
 </script>
 
 <style>
 #app {
+  margin-top: 30px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
