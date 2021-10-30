@@ -8,11 +8,10 @@ const Notify = {
 
 		this.installed = true
 		this.params = args
-
+		const timeout = (args.timeout && args.timeout) || 5000
 		Vue.component('notifications', Notification)
-
 		const emitAddToast = (variant, data) => {
-			events.$emit('add', { variant, data })
+			events.$emit('add', { variant, data }, timeout)
 		}
 
 		const notify = {}

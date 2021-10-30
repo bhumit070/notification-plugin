@@ -7,7 +7,8 @@ import NotificationPlugin from './plugins/notifications/js/plugins'
 
 Vue.use(BootstrapVue)
 Vue.use(NotificationPlugin, {
-  name: 'notification'
+  name: 'notification',
+  timeout: 10000 /* sets timeout for toast */
 })
 
 

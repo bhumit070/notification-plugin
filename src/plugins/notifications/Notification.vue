@@ -1,5 +1,5 @@
 <template>
-  <div>this</div>
+  <div></div>
 </template>
 
 
@@ -7,18 +7,15 @@
 import { events } from "./js/events";
 export default {
   name: "Notification",
-  data: () => ({
-    message: "Click on Button",
-    showCount: 0,
-  }),
   methods: {
-    addItem(payload) {
+    addItem(payload, timeout) {
       this.message = "Show Message";
       this.showCount++;
       this.$bvToast.toast(payload.data, {
         title: `Variant ${payload.variant || "default"}`,
         variant: payload.variant,
         solid: true,
+        autoHideDelay: timeout,
       });
     },
     closeItem() {
